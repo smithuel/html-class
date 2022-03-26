@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Question</title>
+</head>
+<body>
+  <form method="get" action="./answers.html" width="100">
+    <p>
+      <label for="fullName">Full Name: <input type="text" placeholder="Full Name" name="fullName"></label>
+      
+    </p>
+    <p>
+      <label 
+      for="emailorPhone"
+      width="100%">
+        <input 
+        type="text" 
+        placeholder="Email address or phone number" 
+        width="400px"
+        name="emailorPhone"/>
+    </label>
+    </p>
+    <div>
+      Did you read your book yesterday?
+      <input type="radio" value="yes" name="didYouRead">Yes
+      <input type="radio" value="no" name="didYouRead">No
+    </div>
+    <div>
+      How many persons attended the class on Thurday
+      <input type="radio" value="5" name="attendance">5
+      <input type="radio" value="10" name="attendance">10
+      <input type="radio" value="12" name="attendance">12
+      <input type="radio" value="7" name="attendance">7
+    </div>
+
+    <p>
+      Choose from the list below, meals you enjoy
+
+      <br>
+      <input type="checkbox" value="egusi-pounded-yam" name="meals[]">Egusi and pounded yam
+      <br>
+      <input type="checkbox" value="rice-beans-stew" name="meals[]">Rice, beans and stew
+      <br>
+      <input type="checkbox" value="ogbono-fufu" name="meals[]">Ogbono and fufu
+      <br>
+      <input type="checkbox" value="spaghetti-fried-plantain-chicken" name="meals[]">Spaghetti, fried plantain and chicken
+    </p>
+
+    <p>
+      <select name="gender" id="gender">
+        <option value="Female">Female</option>
+        <option value="Male">Male</option>
+      </select>
+    </p>
+    <input type="submit" value="Submit your answers">
+  </form>
+  
+</body>
+</html>
