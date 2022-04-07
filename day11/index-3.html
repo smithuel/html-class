@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nav</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/regular.min.css" integrity="sha512-YoxvmIzlVlt4nYJ6QwBqDzFc+2aXL7yQwkAuscf2ZAg7daNQxlgQHV+LLRHnRXFWPHRvXhJuBBjQqHAqRFkcVw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://kit.fontawesome.com/14ab6394b9.js" crossorigin="anonymous"></script>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+    }
+    .Nav__topnav, .Nav__below_topnav {
+      height: 50px;
+    }
+    .Nav__topnav {
+      background-color: #000;
+    }
+    .Nav__below_topnav {
+      background-color: #333;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .logo_text {
+      float: left;
+    }
+    .logo_text a {
+      color: #f2f2f2;
+      text-decoration: none;
+      display: block;
+      line-height: 50px;
+      font-size: 1.5em;
+    }
+    .links_container {
+      float: right;
+    }
+
+    .links_container ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      height: 50px;
+    }
+    .links_container ul li {
+      float: left;
+    }
+    .links_container ul li a {
+      padding: 10px 15px;
+      color: #f2f2f2;
+      display: block;
+      text-decoration: none;
+      line-height: 22px;
+      font-size: 1.2em;
+      margin: 4px 0;
+      color: #7790BA;
+    }
+    .links_container ul li a:hover {
+      background-color: #09224B;
+      
+    }
+    .Nav__search {
+      border: 1px solid #f2f2f2;
+      border-radius: 5px;
+      margin-top: 6px;
+      margin-left: 15px;
+    }
+    .Nav__search input {
+      background-color: transparent;
+      border: 1px solid #000;
+      display: block;
+      float: left;
+      padding: 10px 10px 10px 12px;
+      width: 270px;
+      color: #fff; 
+      font-size: 90%;
+    }
+    button {
+      background-color: #000;
+      border: 0;
+      border-left: 1px solid #f2f2f2;
+      height: 38px;
+    }
+    button i {
+      color: #f2f2f2;
+      font-size: 25px;
+    }
+
+  </style>
+</head>
+<body>
+  <nav class="Nav__topnav">
+    <div class="container">
+      <div class="logo_text"><a href="">Developer Training</a></div>
+      <div class="links_container">
+        <ul>
+          <li><a href="#">English</a></li>
+          <li><a href="#">Log In</a></li>   
+          <li>
+            <div class="Nav__search">
+              <input type="text" class="search" placeholder="Search">
+              <button><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <nav class="Nav__below_topnav">
+    <div>
+      <div></div>
+      <div></div>
+    </div>
+  </nav>
+</body>
+</html>
