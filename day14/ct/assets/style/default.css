@@ -46,6 +46,7 @@ footer .footer-links a {
   margin: 5px;
   float: left;
 }
+
 .project-item:hover {
   opacity:0.1;
 }

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+
+    .container {
+      
+      min-height: 500px;
+      /* width: 1020px; */
+      border: 1px solid red;
+
+      display: flex;
+      flex-direction: row;
+      justify-content: center; /* align the items along the main axis */
+      align-items: center; /* align items along the cross axis */
+
+    }
+    
+    .container div {
+      width: 100px;
+      height: 40px;
+      /* flex: 1; */
+      border: 1px solid green;
+      /* line-height: 40px; 
+        text-align: center;*/
+      
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container .third {
+      /* flex: 3; */
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div>1</div>
+    <div>2</div>
+    <div class="third">3</div>
+    <div>4</div>
+    <div>5</div>
+  </div>
+</body>
+</html>
