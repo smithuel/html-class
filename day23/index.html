@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Materialize CSS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+  <style>
+
+    .thoverable tr:nth-of-type(odd):hover {
+      background-color: black;
+      color: white;
+    }
+    .thoverable tr:nth-of-type(even):hover {
+      background-color: red;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <table class="striped thoverable">
+    <thead>
+      <tr>
+          <th>Name</th>
+          <th>Item Name</th>
+          <th>Item Price</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td>Alvin</td>
+        <td>Eclair</td>
+        <td>$0.87</td>
+      </tr>
+      <tr>
+        <td>Alan</td>
+        <td>Jellybean</td>
+        <td>$3.76</td>
+      </tr>
+      <tr>
+        <td>Jonathan</td>
+        <td>Lollipop</td>
+        <td>$7.00</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="container">
+    <div class="row">
+      <div class="col s4 center-align">
+        We did most of the heavy lifting for you to provide a default stylings that incorporate our custom components.
+      </div>
+      <div class="col s4 center-align">
+        By utilizing elements and principles of Material Design, we were able to create a framework that focuses on User Experience
+      </div>
+      <div class="col s4 center-align">
+        We have provided detailed documentation as well as specific code examples to help new users get started.
+      </div>
+    </div>
+  </div>
+  <div class="navbar-fixed">
+    <nav class="purple darken-2">
+      <div class="nav-wrapper">
+        <div class="container">
+
+          <a href="#" class="brand-logo">Microsoft</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="sass.html">Products</a></li>
+          <li><a href="badges.html">Self Care</a></li>
+          <li><a href="collapsible.html">Contact us</a></li>
+        </ul>
+
+        </div>
+      </div>
+    </nav>
+  </div>
+  <h1>Hello World</h1>
+  <i class="large material-icons">alarm</i>
+
+  <a href="" class="btn waves-effect waves-light pink">
+    <i class="material-icons right">send</i>
+    Login
+  </a>
+
+  <div class="row">
+    <div class="col blue s1">1</div>
+    <div class="col blue s1">2</div>
+    <div class="col blue s1">3</div>
+    <div class="col blue s1">4</div>
+    <div class="col blue s1">5</div>
+    <div class="col blue s1">6</div>
+    <div class="col blue s1">7</div>
+    <div class="col blue s1">8</div>
+    <div class="col blue s1">9</div>
+    <div class="col blue s1">10</div>
+    <div class="col blue s1">11</div>
+    <div class="col blue s1">12</div>
+  </div>
+  <div class="row">
+    <div class="col s12 red"><span class="flow-text">This div is 12-columns wide on all screen sizes</span></div>
+    <div class="col s4 green">Hello</div>
+    <div class="col s6 offset-s2 blue"><span class="flow-text">6-columns (offset-by-6)</span></div>
+  </div>
+
+  <a href=""><span><i class="material-icons">person_outline</i></span><span>Login</span></a>
+
+
+  <div class="row">
+    <div class="col s7 push-s5"><span class="flow-text">This div is 7-columns wide on pushed to the right by 5-columns.</span></div>
+    <div class="col s5 pull-s7"><span class="flow-text">5-columns wide pulled to the left by 7-columns.</span></div>
+  </div>
+
+  <div class="fixed-action-btn">
+    <a class="btn-floating btn-large red">
+      <i class="large material-icons">mode_edit</i>
+    </a>
+    <ul>
+      <li><a class="btn-floating red"><i class="material-icons">insert_chart</i></a></li>
+      <li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
+      <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
+      <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
+    </ul>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var elems = document.querySelectorAll('.fixed-action-btn');
+      var instances = M.FloatingActionButton.init(elems, {
+        direction: "top",
+        hoverEnabled: true
+      });
+
+      
+    });
+  </script>
+</body>
+</html>

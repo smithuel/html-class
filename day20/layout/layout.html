@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+    }
+    .container {
+      height: 100vh;
+      display: grid;
+      grid-template-rows: 80px 1fr 100px;
+
+      grid-template-areas: 
+        "header header header"
+        "main main main"
+        "footer footer footer";
+
+      grid-template-areas:
+        "header header header"
+        "main main main"
+        "footer footer footer"
+    }
+
+    @media screen and (min-width: 400px) {
+      .container {
+        grid-template-areas:
+          "header header header"
+          "main main sidebar"
+          "footer footer footer"
+      }
+      .sidebar {
+        display:none;
+      }
+    }
+    .header {
+      background-color: #000;
+      grid-area: header;
+    }
+    .main {
+      background-color: blue;
+      grid-area: main;
+    }
+    .footer {
+      background-color: #ccc;
+      grid-area: footer;
+    }
+    .sidebar {
+      grid-area: sidebar;
+      background-color: pink;
+    }
+
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header"></div>
+    <div class="main"></div>
+    <div class="footer"></div>
+    <div class="sidebar"></div>
+  </div>
+</body>
+</html>

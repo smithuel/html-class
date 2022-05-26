@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      
+    }
+
+    .seven {
+      grid-column: 6 / span 7;
+      background-color: red;
+    }
+    .five {
+      grid-column: 1 / span 5;
+      background-color: blue;
+    }
+  </style>
+</head>
+<body>
+  <div class="grid">
+    <div class="seven">This div is 7-columns wide on pushed to the right by 5-columns.</div>
+    <div class="five">5-columns wide pulled to the left by 7-columns.</div>
+  </div>
+</body>
+</html>
