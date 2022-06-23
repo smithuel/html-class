@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<style>
+  .blue {
+    background-color: blue;
+  }
+</style>
+</head>
+<body>
+  <div id="greeting">Hello World!</div>
+
+  <input type="text" id="x" value="10">
+  <input type="text" id="y" value="5">
+
+  <button id="btnCalculate">Calculate</button>
+  <script type="text/javascript">
+
+    let btn = document.getElementById("btnCalculate")
+    btn.addEventListener("click", () => { 
+      let inputX = document.getElementById("x");
+      let inputY = document.getElementById("y");
+      let sum = parseInt(inputX.value) + +inputY.value 
+      let greetingDiv = document.getElementById("greeting");
+      greetingDiv.innerHTML = "<h1>" +  sum + "</h1>"
+    })
+    
+    
+    let inputX = document.getElementById("x");
+    console.log(inputX);
+    console.log(inputX.value);
+    console.log(inputX.attributes["value"])
+    console.log(inputX.attributes[2])
+    console.log(inputX.attributes[2].value)
+    console.log(window.document)
+
+
+    console.log(window.document.getElementById("greeting"))
+
+    let greetingDiv = document.getElementById("greeting");
+    console.log(greetingDiv);
+    // greetingDiv.style.backgroundColor = 'red';
+
+    greetingDiv.innerHTML = "<h1>Hello Nigerians</h1>";
+    // greetingDiv.innerText = "<h1>Hello Nigerians</h1>";
+
+    greetingDiv.addEventListener('click', () =>  greetingDiv.className = 'blue');
+
+    // let x = window.parseInt(window.prompt("Enter x:"))
+    // let y = window.parseInt(window.prompt("Enter y:"))
+    // window.alert(x + y);
+    // let x = parseInt(prompt("Enter x:"))
+    // let y = parseInt(prompt("Enter y:"))
+    // alert(x + y);
+    // let x = +(prompt("Enter x:"))
+    // let y = +(prompt("Enter y:"))
+    // alert(x + y);
+  </script>
+</body>
+</html>

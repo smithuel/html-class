@@ -1,0 +1,72 @@
+body {
+  background-color: rgba(7, 1, 1, 0.808);
+  margin: 0;
+  font-family: Rubik, 'Mukta', sans-serif;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-family: Lato, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.navbar {
+  background-color: #000000;
+  box-sizing: border-box;
+}
+
+.logo {
+  color: #f2f2f2;
+  text-decoration: none;
+  display: block;
+  text-align: center;
+  /* padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 10px; */
+
+  padding: 10px 10px;
+  font-size: 25px;
+}
+
+.links a {
+  display: block;
+  color: #f2f2f2;
+  text-decoration: none;
+  text-align: center;
+  padding: 10px 10px;
+}
+.links a:hover {
+  background-color: #333333;
+}
+
+
+@media screen and (min-width: 690px) {
+  .navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+
+  .links a {
+    display: inline-block;
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+}
+
+.box {
+  box-sizing: border-box;
+  width: 250px;
+  height: 80px;
+  background-color: white;
+  text-align: center;
+  font-size: 30px;
+  padding: 20px;
+  /* line-height: 10px; */
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
