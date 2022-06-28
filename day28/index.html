@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Javascript</title>
+</head>
+<body>
+  <canvas width="800" height="300" style="border: 1px solid red"></canvas>
+  <div class="people"></div>
+  <div class="people"></div>
+  <div class="people"></div>
+  <script src="./functions.js"></script>
+  <script src="./conditions.js"></script>
+  <script src="./operators.js"></script>
+  <script>
+    console.log(document.getElementsByClassName('people'))
+    console.log(document.getElementsByTagName('body'))
+    const divEl = document.createElement("div");
+    divEl.innerHTML = 'Hello Friends';
+    document.body.appendChild(divEl);
+
+    document.body.append('Hello');
+    divEl.innerHTML = 'Hello DT';
+    document.body.append(divEl);
+    // const b = document.getElementsByName("body")
+    // console.log(b);
+
+    const timeout = setTimeout(() =>  alert('This is my page'), 2000);
+    clearTimeout(timeout);
+    let xn = 1;
+    const interval = setInterval(() => console.log(xn++), 1000);
+    clearInterval(interval);
+
+    const gameArea = {
+      canvas: document.createElement('canvas'),
+      start: function() {
+        this.canvas.width = 800;
+        this.canvas.height = 300;
+        this.context = this.canvas.getContext('2d');
+        document.body.insertBefore(this.canvas, document.body.childNodes[0])
+        this.frameNo = 0;
+      },
+      clear: function() {
+        this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+      }
+    }
+  </script>
+</body>
+</html>
