@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    table {
+      border-collapse: collapse;
+
+    }
+    table th, table td {
+      border: 1px solid black;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="output"></div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Scores</th>
+        <th>Average</th>
+      </tr>
+    </thead>
+    <tbody id="tableBody">
+    </tbody>
+  </table>
+
+  <!-- Display the name of the students, their scores and the averages of the scores -->
+  <script>
+    const records = [
+      { firstName: 'Ada', lastName: 'Daniel', scores: [48, 66, 82, 95, 80]},
+      { firstName: 'Eve', lastName: 'Adam', scores: [90, 50, 45, 90, 10]},
+      { firstName: 'June', lastName: 'Month', scores: [40, 65, 70,53, 70]},
+      { firstName: 'July', lastName: 'Month', scores: [50, 65, 70,53, 70]},
+      { firstName: 'August', lastName: 'Month', scores: [70, 65, 70,53, 70]},
+      { firstName: 'May', lastName: 'Month', scores: [80, 65, 30,53, 70]},
+    ]
+    let tableRows = ''
+    for(let i = 0; i < records.length; i++) {
+      let student = records[i]
+      let sum = 0;
+      let scores = ''
+      for(let j = 0; j < student.scores.length; j++) {
+        sum = sum + student.scores[j];
+        scores += student.scores[j] + (j + 1 === student.scores.length ? '' : `, `)
+      }
+      let average = sum / student.scores.length;
+      tableRows += `<tr><td>${student.firstName}</td><td>${student.lastName}</td><td>${scores}</td><td>${average}</td></tr>`
+    }
+
+    const tableBody = document.getElementById('tableBody')
+    tableBody.innerHTML = tableRows;
+  </script>
+</body>
+</html>
