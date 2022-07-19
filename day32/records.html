@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    table {
+      border-collapse: collapse;
+    }
+    table th, table td {
+      padding: 10px;
+      border: 0;
+      border-bottom: 2px solid red; 
+    }
+    table tr:last-child  td {
+      border-bottom: 0px solid red; 
+    }
+    .average {
+      border-top: 1px solid black;
+      border-bottom: 1px solid black;
+      
+      display: inline-block;
+      padding: 4px;
+    }
+
+    table td {
+      vertical-align: top;
+
+    }
+  </style>
+</head>
+<body>
+
+
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>FirstName</th>
+        <th>LastName</th>
+        <th>Scores</th>
+      </tr>
+    </thead>
+    <tbody id="tableBody">
+
+    </tbody>
+  </table>
+  <script>
+    const students = [
+      {id: 1, firstName: 'Ada', lastName: 'Timothy'},
+      {id: 2, firstName: 'James', lastName: 'Williams'},
+      {id: 3, firstName: 'David', lastName: 'Bowel'},
+    ]
+    const scores = [
+      { id: 1, studentId: 1, score: 50},
+      { id: 2, studentId: 1, score: 60},
+      { id: 3, studentId: 1, score: 80},
+      { id: 4, studentId: 1, score: 90},
+      { id: 5, studentId: 1, score: 40},
+      { id: 6, studentId: 1, score: 75},
+      { id: 7, studentId: 2, score: 30},
+      { id: 8, studentId: 2, score: 60},
+      { id: 9, studentId: 2, score: 80},
+      { id: 10, studentId: 2, score: 68},
+      { id: 11, studentId: 2, score: 40},
+      { id: 12, studentId: 3, score: 55},
+      { id: 13, studentId: 3, score: 78},
+      { id: 14, studentId: 3, score: 92},
+      { id: 15, studentId: 3, score: 69},
+      { id: 16, studentId: 3, score: 95},
+    ]
+
+    let tableBody = document.getElementById('tableBody');
+
+    for(let i = 0; i < students.length; i++) {
+      const student = students[i];
+      
+      // const studentScores = [];
+      // for(let j = 0; j < scores.length; j++) {
+      //   const score = scores[j];
+      //   if (score.studentId === student.id) {
+      //     studentScores.push(scores[j])
+      //   }
+      // }
+
+
+      // const studentScores = scores.filter(function(item){
+      //   return item.studentId === student.id 
+      // })
+
+
+      // const studentScores = scores.filter(item => item.studentId === student.id)
+      
+      // const getScoreByStudentId = item => item.studentId === student.id
+      // const studentScores = scores.filter(getScoreByStudentId)
+
+      function getScoresOfStudentById(item){
+        return item.studentId === student.id
+      }
+      const studentScores = scores.filter(getScoresOfStudentById)
+      
+      const separatedScores = studentScores.reduce((acc, cur) => `${acc}${cur.score}<br>`, '')
+      const studentScoresAverage = studentScores.reduce((acc, cur) => acc + cur.score, 0) / studentScores.length;
+      
+      const row = `<tr><td>${i + 1}</td><td>${student.firstName}</td><td>${student.lastName}</td><td>${separatedScores}<br><span class='average'>Avg = ${studentScoresAverage.toFixed(2)}</span></td></tr>`;
+      tableBody.innerHTML += row;
+      // break;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>FirstName</th>
+        <th>LastName</th>
+        <th>Average</th>
+      </tr>
+    </thead>
+    <tbody id="tableBody">
+
+    </tbody>
+  </table>
+  <script>
+    const greeting = 'Hello' 
+    const name = 'Juliet';
+
+    console.log(greeting, name);
+    console.log(greeting + name);
+    console.log(`${greeting} ${name}`)
+    // concatenation Hello Juliet
+
+    function findAverage(scores) {
+      let totalScores = 0
+      for(let j = 0; j < scores.length; j++) {
+        totalScores = totalScores + scores[j]
+      }
+      return totalScores / scores.length;
+    }
+
+    function findAverageUsingReduce(scores) {
+      return scores.reduce((acc, cur) => acc + cur, 0) / scores.length
+    }
+
+    const findAverageUsingReduceArrowFunction = (scores) => scores.reduce((acc, cur) => acc + cur, 0) / scores.length 
+
+    const scores = [50, 60, 80, 90, 45, 66]
+
+    let sum = 0;
+
+    for(let i = 0; i < scores.length; i++) {
+      sum = sum + scores[i] // sum += scores[i]
+    }
+    console.log(sum);
+    const average = sum  / scores.length
+    console.log(average)
+    console.log(Math.ceil(average))
+    console.log(Math.floor(average))
+    console.log(Math.round(average))
+    
+
+    const records = [
+      { firstName: 'Ada', lastName: 'Daniel', scores: [48, 66, 82, 95, 80]},
+      { firstName: 'Eve', lastName: 'Adam', scores: [90, 50, 45, 90, 10]},
+      { firstName: 'June', lastName: 'Month', scores: [40, 65, 70,53, 70]},
+      { firstName: 'July', lastName: 'Month', scores: [50, 65, 70,53, 70]},
+      { firstName: 'August', lastName: 'Month', scores: [70, 65, 70,53, 70]},
+      { firstName: 'May', lastName: 'Month', scores: [80, 65, 30,53, 70]},
+    ]
+
+    const tableBody = document.getElementById('tableBody')
+    for(let i = 0; i < records.length; i++) {
+      let totalScores = 0;
+      const student = records[i]
+      const { firstName, lastName, scores } = student; 
+      const row = `<tr><td>${i + 1}</td><td>${firstName}</td><td>${lastName}</td><td>${findAverageUsingReduce(scores)}</td></tr>`
+      tableBody.innerHTML += row; // tableBody.innerHTML = tableBody.innerHTML + row;
+    }
+
+    // const row2 = '<tr><td>' + firstName + '</td><td>' + lastName + '</td><td>' + average + '</td></tr>';
+
+  </script>
+</body>
+</html>
