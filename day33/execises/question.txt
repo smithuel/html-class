@@ -1,0 +1,8 @@
+1. Write a function that will return the maximum number in any given array. 
+The function should return -1 if the array is empty. (15 minutes)
+
+
+2. Write a function to sort the numbers in any given array. 
+The function should accept the sort order (asc, desc) along with the array.
+For example sort([2, 5, 1, 4, 3], 'asc') it should return [1, 2, 3, 4, 5] 
+and sort([2, 5, 1, 4, 3], 'desc') it should return [5, 4, 3, 2, 1] (20 minutes)
