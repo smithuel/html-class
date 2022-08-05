@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .todo-form {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+        }
+        .completed  {
+            text-decoration: line-through;
+        }
+    </style>
+</head>
+<body>
+    <div id="todoItems">
+       
+    </div>
+    <div id="completedTodoItems">
+       
+    </div>
+    <div class="todo-form">
+        <form action="">
+            <input name="todoInput" id="todoInput" type="text" placeholder=" Enter an item ...">
+            <button id="submitButton" type="button">Add item</button>
+        </form>
+    </div>
+    <script>
+        let todos =  [];
+        function storeTodos() {
+            localStorage.setItem("todos", JSON.stringify(todos))  
+        }
+        function getTodos() {
+            const storedTodos = localStorage.getItem("todos") || "[]"
+            todos = JSON.parse(storedTodos)    
+        }
+
+        const submitButton = document.getElementById("submitButton")
+        const todoItems = document.getElementById("todoItems");
+        const completedTodoItems = document.getElementById("completedTodoItems");
+        
+        function displayTodos() {   
+            getTodos()
+            todoItems.innerHTML = "";
+            completedTodoItems.innerHTML = ""
+            for(let i = 0; i < todos.length; i++) {
+                const todo = todos[i];
+                if (todo.completed) {
+                    completedTodoItems.innerHTML += `<div class="completed"><label><input type="checkbox" name="${todo.id}" id="${todo.id}" value="${todo.id}" ${todo.completed ? "checked" : ""} onchange="toggleCompleted(this)" />${todo.description}</label></div>`;
+                } else {
+                    todoItems.innerHTML += `<div><label><input type="checkbox" name="${todo.id}" id="${todo.id}" value="${todo.id}" ${todo.completed ? "checked" : ""} onchange="toggleCompleted(this)" />${todo.description}</label></div>`;
+                }
+            }
+        }
+
+        function toggleCompleted(checkbox) {
+            const selectedTodoId = +checkbox.value;
+            todos = todos.map(todo => todo.id === selectedTodoId ? { ...todo, completed: !todo.completed } : todo)
+            storeTodos()
+            displayTodos()
+        }
+        
+        submitButton.addEventListener("click", function(event) {
+            const todoInput = document.getElementById("todoInput");
+            const todo = { id: todos.length+1, description: todoInput.value, completed: false }
+            todos.push(todo)
+            todoInput.value = "";
+            storeTodos()
+            displayTodos();
+        })
+        displayTodos()
+    </script>
+</body>
+</html>

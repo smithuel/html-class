@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+
+    <style>
+        .calculator {
+            width: 410px;
+            padding: 10px;
+            background-color: rgb(32, 30, 30);
+        }
+        .numberButton {
+            width: 100px;
+            height: 50px;
+            background-color: #333;
+            color: #f2f2f2;
+            text-align: center;
+            line-height: 50px;
+            font-size: 20px;
+            outline: 0;
+            border: 0;
+            border-radius: 7px;
+        }
+        .numberButton:hover {
+            background-color: rgb(95, 92, 92);
+        }
+        .buttonContainer {
+            width: 480px;
+            margin-bottom: 5px;
+        }
+        .display {
+            color: #f2f2f2;
+            text-align: right;
+            padding: 10px;
+            background-color: rgb(32, 30, 30);
+            width: 390px;
+            min-height: 40px;
+            margin-bottom: 7px;
+        }
+        #secDisplay {
+            font-size: 18px;
+            text-align: right;
+            flex: 1;
+        }
+        #mainDisplay {
+            font-size: 35px;
+            font-weight: 900;
+            padding: 10px 0;
+        }
+        .topDisplay {
+            display: flex;
+        }
+        .clearEntry {
+            background-color: rgb(46, 45, 45);
+            padding: 5px;
+            cursor: default;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+
+        <div class="display" id="displayDiv">
+            <div class="topDisplay">
+                <div class="clearEntry" onclick="clearEntry()">CE</div>
+                <div id="secDisplay"></div>
+            </div>
+            <div id="mainDisplay">0</div>
+        </div>
+        <div class="buttons">
+
+            <div class="buttonContainer">
+                <button class="numberButton" value="7" onclick="buttonClicked(this)">7</button>
+                <button class="numberButton" value="8" onclick="buttonClicked(this)">8</button>
+                <button class="numberButton" value="9" onclick="buttonClicked(this)">9</button>
+                <button class="numberButton" value="÷" onclick="buttonClicked(this)">÷</button>
+            </div>
+            <div class="buttonContainer">
+                <button class="numberButton" value="4" onclick="buttonClicked(this)">4</button>
+                <button class="numberButton" value="5" onclick="buttonClicked(this)">5</button>
+                <button class="numberButton" value="6" onclick="buttonClicked(this)">6</button>
+                <button class="numberButton" value="x" onclick="buttonClicked(this)">x</button>
+            </div>
+            <div class="buttonContainer">
+                <button class="numberButton" value="1" onclick="buttonClicked(this)">1</button>
+                <button class="numberButton" value="2" onclick="buttonClicked(this)">2</button>
+                <button class="numberButton" value="3" onclick="buttonClicked(this)">3</button>
+                <button class="numberButton" value="-" onclick="buttonClicked(this)">-</button>
+            </div>
+            <div class="buttonContainer">
+                <button class="numberButton" value="0" onclick="buttonClicked(this)">0</button>
+                <button class="numberButton" value="." onclick="buttonClicked(this)">.</button>
+                <button class="numberButton" value="=" onclick="buttonClicked(this)">=</button>
+                <button class="numberButton" value="+" onclick="buttonClicked(this)">+</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const mainDisplay = document.getElementById("mainDisplay")
+        const secDisplay = document.getElementById("secDisplay")
+        let input = ""
+        let secondEntries = ""
+        let operation = ""
+        let inputs = [];
+        let result;
+        function buttonClicked(btn) {
+            const value = btn.value;
+
+            if (value === "=") {
+                const lhs = Number(inputs[0]) //left hand side
+                const op = inputs[1]
+                const rhs = Number(input) //right hand side
+
+                if (op === "+") result = lhs + rhs;
+                if (op === "-") result = lhs - rhs;
+                if (op === "x") result = lhs * rhs;
+                if (op === "÷") result = lhs / rhs;
+                mainDisplay.innerHTML = result;
+                secDisplay.innerHTML += input 
+                secDisplay.innerHTML += " " + value;
+                inputs = [];
+                return;
+            }
+
+           
+
+            const operators = ["+", "-", "x", "÷"]
+            if (operators.includes(value)) { 
+                if (result) input = result;
+                inputs.push(input)
+                inputs.push(value)
+                secDisplay.innerHTML = input + " " + value + " "
+            } else {
+                if(operators.includes(inputs[inputs.length -1])) input = ""
+                input +=  btn.value;
+                mainDisplay.innerHTML = input;
+            }
+        }
+        function clearEntry() {
+            inputs = [];
+            input = "";
+            result = undefined
+            mainDisplay.innerHTML = "0"
+            secDisplay.innerHTML = ""
+        }
+    </script>
+</body>
+</html>
