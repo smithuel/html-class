@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Conversion from Binary to Decimal</h1>
+
+    <script>
+        function convertFromBinaryToDecimal(n) {
+            let dec = 0;
+            for(let i = n.length; i > 0; i--) {
+                let x = parseInt(n.charAt(i-1))
+                dec += x * (2 ** (n.length - i))
+            }
+            return dec;
+        }
+
+        console.log(convertFromBinaryToDecimal("1000"))
+        console.log(convertFromBinaryToDecimal("1001011"))
+    </script>
+</body>
+</html>

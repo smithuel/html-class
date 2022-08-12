@@ -29,7 +29,7 @@
     <div class="todo-form">
         <form action="">
             <input name="todoInput" id="todoInput" type="text" placeholder=" Enter an item ...">
-            <button id="submitButton" type="button">Add item</button>
+            <!-- <button id="submitButton" type="button">Add item</button> -->
         </form>
     </div>
     <script>
@@ -45,7 +45,13 @@
         const submitButton = document.getElementById("submitButton")
         const todoItems = document.getElementById("todoItems");
         const completedTodoItems = document.getElementById("completedTodoItems");
-        
+        function deleteTodoItem(btn) {
+            const selectedTodoId = +btn.value
+            getTodos();
+            todos = todos.filter(todo => todo.id !== selectedTodoId);
+            storeTodos();
+            displayTodos();
+        }
         function displayTodos() {   
             getTodos()
             todoItems.innerHTML = "";
@@ -55,7 +61,7 @@
                 if (todo.completed) {
                     completedTodoItems.innerHTML += `<div class="completed"><label><input type="checkbox" name="${todo.id}" id="${todo.id}" value="${todo.id}" ${todo.completed ? "checked" : ""} onchange="toggleCompleted(this)" />${todo.description}</label></div>`;
                 } else {
-                    todoItems.innerHTML += `<div><label><input type="checkbox" name="${todo.id}" id="${todo.id}" value="${todo.id}" ${todo.completed ? "checked" : ""} onchange="toggleCompleted(this)" />${todo.description}</label></div>`;
+                    todoItems.innerHTML += `<div><label><input type="checkbox" name="${todo.id}" id="${todo.id}" value="${todo.id}" ${todo.completed ? "checked" : ""} onchange="toggleCompleted(this)" />${todo.description}</label> <button value="${todo.id}" onclick="deleteTodoItem(this)">x</button></div>`;
                 }
             }
         }
@@ -66,14 +72,27 @@
             storeTodos()
             displayTodos()
         }
-        
-        submitButton.addEventListener("click", function(event) {
-            const todoInput = document.getElementById("todoInput");
-            const todo = { id: todos.length+1, description: todoInput.value, completed: false }
-            todos.push(todo)
-            todoInput.value = "";
-            storeTodos()
-            displayTodos();
+
+        // submitButton.addEventListener("click", function(event) {
+        //     const todo = { id: todos.length+1, description: todoInput.value, completed: false }
+        //     const todoInput = document.getElementById("todoInput");
+        //     todos.push(todo)
+        //     todoInput.value = "";
+        //     storeTodos()
+        //     displayTodos();
+        // })
+        const todoInput = document.getElementById("todoInput");
+        todoInput.addEventListener("keydown", function(event) {
+            if(event.keyCode === 13) {
+                event.preventDefault();
+                if(todoInput.value === "") return;
+    
+                const todo = { id: todos.length+1, description: todoInput.value, completed: false }
+                todos.push(todo)
+                todoInput.value = "";
+                storeTodos()
+                displayTodos();
+            }
         })
         displayTodos()
     </script>

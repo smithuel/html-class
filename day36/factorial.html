@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="output"></div>
+    <script>
+
+        // find the factorial of n
+        function factorial(n) {
+            if (n === 0) return 1;
+            let fac = n; 
+            for(let i = fac-1; i >= 1; i--) {
+                fac = fac * i
+            }
+            return fac;
+        }
+        function factorial2(n) {
+            if (n === 1) return 1;
+            return n * factorial2(n-1) 
+            // 7 * factorial2(6) 
+            // 7 * 6 * factorial2(5)
+            // 7 * 6 * 5 * factorial2(4)
+            // 7 * 6 * 5 * 4 * factorial2(3)
+            // 7 * 6 * 5 * 4 * 3 * factorial2(2)
+            // 7 * 6 * 5 * 4 * 3 * 2 * factorial2(1)
+            // 7 * 6 * 5 * 4 * 3 * 2 * 1
+        }
+        const outputDiv = document.getElementById("output")
+        outputDiv.innerHTML = "First method: " +factorial(7);
+        outputDiv.innerHTML += "<br/> Second method: " + factorial2(7);
+        outputDiv.innerHTML = "First method: " + factorial(0);
+    </script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input[type=text] {
+            height: 40px;
+            outline-color:#333;
+            border-width: 0.8px;
+            outline-width: 0.5px;
+            padding: 5px;
+            font-size: 20px;
+        }
+        #converter {
+            font-weight: bold;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Convert From Decimal to Binary</h1>
+
+    <input type="text" id="decimalNumber" placeholder="Enter a decimal number ...">
+    <div id="converter"></div>
+    <script>
+        // post increment
+        let y = 2;
+        let x = y++; 
+        console.log(x, y); //x=2, y=3
+
+        // pre increment
+        let i = 2;
+        let j = ++i;
+        console.log(j, i); // j=3, i=3
+
+
+
+        function convertFromDecimalToBinary(n) {
+            const arr = []
+            // for(let i=0; ; i++) {
+            //     const p = 2 ** i;
+            //     if (p <= n ) arr.push(p)
+            //     else break;
+            // }
+            let i = 0;
+            for(;;) { //don't bother about initialisation, condition or increment
+                const p = 2 ** i++;
+                if (p <= n ) arr.push(p)
+                else break;
+            }
+            // let i = 0;
+            // let p = 0;
+            // do {
+            //     p = 2 ** i++;
+            //     arr.push(p)
+            // } while(p <= n)
+
+            // let i = 0;
+            // let p = 0;
+            // while (p <= n) {
+            //     p = 2 ** i++;
+            //     arr.push(p)
+            // }
+
+            let remainder = n
+            for(let i = arr.length-1; i >= 0; i--) {
+                if (arr[i] > remainder) arr[i] = 0
+                else {
+                    remainder = remainder - arr[i]
+                    arr[i] = 1
+                }
+            }
+            return arr.reverse().join("");
+        }
+
+        const converter = document.getElementById("converter");
+        // const result = convertFromDecimalToBinary(8)
+        // converter.innerHTML = result;
+
+        const decimalNumberInput = document.getElementById("decimalNumber");
+        decimalNumberInput.addEventListener("keydown", (event) => {
+            // console.log(event);
+            if (event.keyCode === 13) {
+                converter.innerHTML = convertFromDecimalToBinary(+decimalNumberInput.value);
+            }
+          
+        })
+
+    </script>
+
+</body>
+</html>
