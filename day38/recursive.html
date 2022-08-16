@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const routes = [
+            {
+                path: "/",
+                element: <Home />
+                scope: ['ADMIN']
+            },
+            {
+                path: "/product",
+                element: <Product />
+                children: [{
+                    path: '/:id',
+                    element: <ProductHome/>
+                }],
+                scope: 'ADMIN',
+            }
+        ]
+
+        function routeMapper(routesArr, role) {
+            for(let i = 0; i < routesArr.length; i++) {
+                const route = routesArr[i]
+
+                if (!route.scope.includes(role)) return null;
+
+                if (route.children) {
+                    route.children = routeMapper(route.children, role)
+                }
+            }
+        }
+
+        routeMapper(routes, 'PEOPLES_MANAGER')
+    </script>
+</body>
+</html>

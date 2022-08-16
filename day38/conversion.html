@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Conversion from Binary to Decimal</h1>
+    <!-- 1000 -->
+    <!-- 1*2^3 + 0*2^2 + 0*2^1 + 0*2^0 -->
+    <div id="binaryToDecimal">
+        <input type="text" id="binaryNumberInput">
+        <div id="output"></div>
+    </div>
+    <script>
+        function convertFromBinaryToDecimal(n) {
+            let dec = 0;
+            for(let i = n.length; i > 0; i--) {
+                let c = parseInt(n.charAt(i-1))
+                dec += c * (2 ** (n.length - i))
+            }
+            return dec;
+        }
+
+        console.log(convertFromBinaryToDecimal("1000"))
+        console.log(convertFromBinaryToDecimal("1001011"))
+
+        const binaryNumberInput = document.getElementById("binaryNumberInput");
+        const output = document.getElementById("output");
+        binaryNumberInput.addEventListener("keydown", function(event){
+            if (event.keyCode == 13) {
+                output.innerHTML = convertFromBinaryToDecimal(binaryNumberInput.value)
+            }
+        })
+    </script>
+</body>
+</html>

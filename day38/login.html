@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .error {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <!-- When the user enters kalu as username and efe as password, 
+    we should alert the user that the login is successful
+    else we should the login failed -->
+        <div class="msg"></div>
+        <div>Username <input type="text" id="username"></div>
+        <div>Password <input type="password" id="password"></div>
+        <button onclick="login()">Submit</button>
+
+        <script>
+            function login(){
+                const usernameInput = document.getElementById("username");
+                const passwordInput = document.getElementById("password");
+                const expectedUsername = "kalu";
+                const expectedPassword = "efe";
+                const msg = document.getElementsByClassName("msg")[0]
+
+                if (usernameInput.value == expectedUsername && passwordInput.value == expectedPassword) {
+                   
+                    window.location = "home.html"; //redirect the user to the home page
+                } else {
+                    msg.className = "error"
+                    msg.innerHTML = "Login failed. Invalid username or password";
+                }
+            }
+        </script>
+</body>
+</html>
