@@ -37,7 +37,7 @@
                 const msg = document.getElementsByClassName("msg")[0]
                 const { users } = database  // const users = database.users
                 const user = users.find(user => user.username == usernameInput.value);
-                console.log(user)
+                
                 if (user && user.password == passwordInput.value) {  
                     window.location = "home.html"; //redirect the user to the home page
                 } else {

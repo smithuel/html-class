@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            width: 100%;
+            overflow: hidden;
+        }
+        /* #wrapper {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            z-index: -1;
+        } */
+        .hamburger {
+            width: 50px;
+            background-color: #333;
+            padding: 10px;
+            height: 45px;
+            z-index: 10;
+        }
+
+        .hamburger div {
+            height: 2px;
+            width: 30px;
+            background-color: white;
+            margin-top: 10px;
+        }
+        .hamburger div:first-child {
+            margin-top: 0;
+        }
+
+        @media screen and (min-width: 600px) {
+            .hamburger {
+                display: none;
+            }
+        }
+        .navbar {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #333;
+            width: 100%;
+        }
+
+        .navbar a {
+            color: #f2f2f2;
+            text-decoration: none;
+            padding: 20px;
+        }
+
+        .navbar .links {
+            display: flex;
+            flex-direction: row;
+            padding-right: 0;
+            display: none;
+
+        }
+        @media screen and (min-width: 600px) {
+            .navbar .links {
+                display: flex;
+                flex-direction: row;
+                padding-right: 100px;
+                display: block;
+            }
+        }
+        .navbar .links a {
+            padding: 20px;
+        }
+        .navbar .links a:hover {
+            background-color: rgb(78, 75, 75);
+        }
+
+        .sidebar {
+            position: absolute;
+            top: 57px;
+            bottom: 0;
+            right: 0;
+            background-color: #000;
+            width: 200px;
+            margin-right: -200px;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            -webkit-transition: margin-right 1s ease-in-out;
+            -moz-transition: margin-right 1s ease-in-out;
+            -o-transition: margin-right 1s ease-in-out;
+            transition: margin-right 1s ease-in-out;
+
+        }
+        .sidebar .items {
+            display: flex;
+            flex-direction: column;
+        }
+        .sidebar .items  a {
+            color: #f2f2f2;
+            padding: 20px;
+            text-align: center;
+        }
+        .sidebar .items  a:hover {
+            background-color: rgb(78, 75, 75);
+        }
+        .sidebar .close {
+            font-size: 30px;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 10px;
+            background-color: #333;
+        }
+        @media screen and (min-width: 600px) {
+            .sidebar {
+                display: none;
+            }
+        }
+        .displaySidebar {
+            margin-right: 0px;
+        }
+        #sidebarWrapper {
+            width: 100%;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            /* margin-top: 60px; */
+        }
+    </style>
+</head>
+<body>
+
+    <div id="wrapper">
+
+        <div class="navbar">
+            <a href="" class="logo">DT ORG</a>
+            <div class="links">
+                <a href="">HOME</a>
+                <a href="">LIBRARY</a>
+                <a href="">HELP DESK</a>
+                <a href="">ABOUT US</a>
+            </div>
+            <div class="hamburger">
+                <div>&nbsp;</div>
+                <div>&nbsp;</div>
+                <div>&nbsp;</div>
+            </div>
+        </div>
+        <div id="sidebarWrapper">
+
+            <div class="sidebar">
+                <div class="items">
+                    <a href="">HOME</a>
+                    <a href="">LIBRARY</a>
+                    <a href="">HELP DESK</a>
+                    <a href="">ABOUT US</a>
+                </div>
+                <div id="close" class="close">X</div>
+            </div>
+
+        </div>
+
+
+    </div>
+    <script>
+
+        let showSidebar = false;
+        const hamburger = document.getElementsByClassName("hamburger")[0];
+        const wrapper = document.getElementById("sidebarWrapper");
+        const close = document.getElementById("close");
+
+        function getSidebar() {
+            return  document.getElementsByClassName("sidebar")[0];
+        }
+        wrapper.addEventListener("click", function(event){
+            const sidebar = getSidebar();
+            sidebar.classList.remove("displaySidebar")
+        })
+        close.addEventListener("click", function(event){
+            const sidebar =  getSidebar();
+            sidebar.classList.remove("displaySidebar")
+        })
+        hamburger.addEventListener("click", function(event){
+            const sidebar = getSidebar();
+            showSidebar = !showSidebar;
+            if(showSidebar) 
+                sidebar.classList.add("displaySidebar")
+            else {
+                sidebar.classList.remove("displaySidebar")
+            }
+        })
+    </script>
+</body>
+</html>
